@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/landon/Downloads/fluxbox/Tonky_Desktop/.tonky'
+let g:netrw_dirhist_2='/home/landon/.vim/ftplugin'
+let g:netrw_dirhist_3='/home/landon/.ssh'
