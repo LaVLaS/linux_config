@@ -18,6 +18,13 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Plugin 'gmarik/vundle'
+Bundle 'bling/vim-airline'
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -96,8 +103,11 @@ if !exists(":DiffOrig")
 endif
 
 " Landon's Custom VIM settings
-set directory=~/.vim/backup//
-set backupdir=~/.vim/backup//
+set directory=~/tmp/backup//
+set backupdir=~/tmp/backup//
+
+"Always show the status bar
+set laststatus=2
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
