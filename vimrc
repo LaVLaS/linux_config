@@ -1,14 +1,3 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
-
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -24,6 +13,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Plugin 'gmarik/vundle'
 Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-surround'
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -102,6 +92,12 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+set background=dark
+
+"Default to case insensitive searching. Case sensitive search only when upper case is included in search term
+set ignorecase
+set smartcase
+
 " Landon's Custom VIM settings
 set directory=~/tmp/backup//
 set backupdir=~/tmp/backup//
@@ -111,3 +107,5 @@ set laststatus=2
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+
+set number

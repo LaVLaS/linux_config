@@ -44,3 +44,4 @@ endif
 
 " LANDON'S ADDITIONS
 set number
+colorscheme harlequin

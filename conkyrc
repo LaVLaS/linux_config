@@ -1,0 +1,160 @@
+# set to yes if you want Conky to be forked in the background
+background yes
+
+# X font when Xft is disabled, you can pick one with program xfontsel
+#font 5x7
+#font 6x10
+#font 7x13
+#font 8x13
+#font 9x15
+#font *mintsmild.se*
+#font -*-*-*-*-*-*-34-*-*-*-*-*-*-*
+#
+#
+# Use Xft?
+use_xft yes
+#
+# Xft font when Xft is enabled
+#xftfont Bitstream Vera Sans Mono:size=8
+xftfont Terminus:size=10
+#
+# Text alpha when using Xft
+xftalpha 0.8
+#
+# Print everything to console?
+# out_to_console no
+#
+# mail spool
+#mail_spool $MAIL
+#
+# Update interval in seconds
+update_interval 2.0
+#
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+#
+# Create own window instead of using desktop (required in nautilus)
+own_window_title conky
+own_window_class Conky
+own_window yes
+own_window_type override
+own_window_argb_visual yes
+own_window_argb_value 190
+own_window_transparent no
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#
+#
+#desktop 1
+#
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+#
+# Minimum size of text area
+minimum_size 180 170
+#
+# Draw shades?
+draw_shades no
+#
+# Draw outlines?
+draw_outline no
+#
+# Draw borders around text
+draw_borders no
+#
+# Stippled borders?
+stippled_borders 0
+#
+# border margins
+#border_margin 0
+#
+# border width
+border_width 0
+#
+# Default colors and also border colors
+default_color white
+default_shade_color red
+default_outline_color white
+#
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+#
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 10 
+gap_y 10
+#
+# Subtract file system buffers from used memory?
+no_buffers yes
+#
+# set to yes if you want all text to be in uppercase
+uppercase no
+#
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 1
+#
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 1
+#
+#
+# stuff after 'TEXT' will be formatted on screen
+#
+TEXT
+${color }${time %a, } ${color }${time %B %e, %G}
+${color}${time %Z,  }${color }${time %H:%M:%S}
+$hr
+${color}Uptime: ${color } ${alignr}$uptime
+${color}Kern:${color } ${alignr}$kernel
+#
+# CPU Stats
+${color}CPU:${color } ${alignr}${cpu cpu0}% ${alignr} ${cpu cpu1}% ${alignr}${cpu cpu2}% ${alignr}${cpu cpu3}%
+${cpugraph 20 white}
+${color}Load: ${color }$loadavg
+${color}Processes: ${color }$processes  
+${color}Running:    ${color }$running_processes
+#
+
+${color}Highest CPU:${color }
+$hr
+${top name 1}${alignr} ${top cpu 1}
+${top name 2}${alignr} ${top cpu 2}
+${top name 3}${alignr} ${top cpu 3}
+${top name 4}${alignr} ${top cpu 4}
+
+# MEMORY STATS
+${color}Highest MEM:${color }
+$hr
+${top_mem name 1}${alignr} ${top_mem mem 1}
+${top_mem name 2}${alignr} ${top_mem mem 2}
+${top_mem name 3}${alignr} ${top_mem mem 3}
+${top_mem name 4}${alignr} ${top_mem mem 4}
+
+#
+${color}MEM:${color } ${alignr}$memperc% $mem/$memmax
+${membar 3}
+#
+${color}ROOT:${color } ${alignr}${fs_used /} of ${fs_size /}
+${fs_bar 3 /}
+#
+${color}HOME: ${color } ${alignr}${fs_used /home/landon} of ${fs_size /home/landon}
+${fs_bar 3 /home/landon}
+$hr
+${color}IP: ${addr p23p1}
+${color}Up: ${color }${upspeedf p23p1}
+${upspeedgraph p23p1 20 lightgrey}
+${color}Down: ${color }${downspeedf p23p1}${color}
+${downspeedgraph p23p1 20 lightgrey}
+#
+GPU Temp: ${execi 600 nvidia-settings -query GPUCoreTemp | perl -ne 'print $1 if /GPUCoreTemp.*\($ENV{"HOSTNAME"}:0\.0\):\s+(\d+)/;'}°C
+
+$hr
+${execi 600 cal $(python -c 'import datetime as dt; myday = dt.datetime.today(); print "%d %d %d" % (myday.day, myday.month - 1 if myday.month > 1 else 12, myday.year if myday.month > 1 else myday.year-1)')}
+
+#${execi 600 cal}
+${execi 600 cal $(python -c 'import datetime as dt; myday = dt.datetime.today(); print "%d %d %d" % (myday.day, myday.month, myday.year)')}
+${execi 600 cal $(python -c 'import datetime as dt; myday = dt.datetime.today(); print "%d %d %d" % (myday.day, myday.month + 1 if myday.month < 12 else 1, myday.year if myday.month < 12 else myday.year+1)')}
