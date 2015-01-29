@@ -9,12 +9,13 @@ set nocompatible
 
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 Plugin 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-surround'
 
+call vundle#end()
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
