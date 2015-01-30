@@ -153,8 +153,7 @@ ${downspeedgraph p23p1 20 lightgrey}
 GPU Temp: ${execi 600 nvidia-settings -query GPUCoreTemp | perl -ne 'print $1 if /GPUCoreTemp.*\($ENV{"HOSTNAME"}:0\.0\):\s+(\d+)/;'}°C
 
 $hr
-${execi 600 cal $(python -c 'import datetime as dt; myday = dt.datetime.today(); print "%d %d %d" % (myday.day, myday.month - 1 if myday.month > 1 else 12, myday.year if myday.month > 1 else myday.year-1)')}
+${execi 600 cal $(python -c 'import datetime as dt; myday = dt.datetime.today(); print "1 %d %d" % (myday.month - 1 if myday.month > 1 else 12, myday.year if myday.month > 1 else myday.year-1)')}
 
-#${execi 600 cal}
-${execi 600 cal $(python -c 'import datetime as dt; myday = dt.datetime.today(); print "%d %d %d" % (myday.day, myday.month, myday.year)')}
-${execi 600 cal $(python -c 'import datetime as dt; myday = dt.datetime.today(); print "%d %d %d" % (myday.day, myday.month + 1 if myday.month < 12 else 1, myday.year if myday.month < 12 else myday.year+1)')}
+${execi 600 cal $(python -c 'import datetime as dt; myday = dt.datetime.today(); print "1 %d %d" % (myday.month, myday.year)')}
+${execi 600 cal $(python -c 'import datetime as dt; myday = dt.datetime.today(); print "1 %d %d" % (myday.month + 1 if myday.month < 12 else 1, myday.year if myday.month < 12 else myday.year+1)')}

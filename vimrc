@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-surround'
+Bundle 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 " allow backspacing over everything in insert mode

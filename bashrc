@@ -9,7 +9,8 @@ fi
 unset command_not_found_handle
 
 
-PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD}\007"'
+#PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD}\007"'
+PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
 
 if [ -n "$SSH_CLIENT" ]; then
