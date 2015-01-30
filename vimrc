@@ -44,6 +44,12 @@ if has('mouse')
   set mouse=a
 endif
 
+" This will allow vim splits to be resized using the mouse inside tmux
+if &term =~ '^screen'
+	" tmux knows the extended mouse mode
+	set ttymouse=xterm2
+endif
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
