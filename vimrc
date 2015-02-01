@@ -101,6 +101,7 @@ if !exists(":DiffOrig")
 endif
 
 set background=dark
+colorscheme harlequin
 
 "Default to case insensitive searching. Case sensitive search only when upper case is included in search term
 set ignorecase
