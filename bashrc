@@ -6,14 +6,14 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
+#Stop Fedora from suggesting yum packages when entering a command that isn't found
 unset command_not_found_handle
 
-
-#PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD}\007"'
 PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
 
 if [ -n "$SSH_CLIENT" ]; then
+	PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD}\007"'
 #	PS1="{\u@\[\033[33m*SSH*\033[0m\]\h \W}$ "
 	PS1='\[\e[1;33;40m\]\u@\h:\w *SSH* \[\e[0m\]'
 else
