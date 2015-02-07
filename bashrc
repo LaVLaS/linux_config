@@ -9,7 +9,14 @@ fi
 #Stop Fedora from suggesting yum packages when entering a command that isn't found
 unset command_not_found_handle
 
-PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+export HISTCONTROL=ignoredups:erasedups #No duplicate commands consecutively in bash history
+export HISTSIZE=100000					#An elephant never forgets...unzip 100k commands
+export HISTFILESIZE=100000				#History size matters
+shopt -s histappend						#Append to bash_history
+
+# After each command, append to the history file and reread it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+#PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
 
 if [ -n "$SSH_CLIENT" ]; then
