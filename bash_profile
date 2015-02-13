@@ -17,9 +17,5 @@ else
 	EDITOR=vi
 fi
 
-if [ -f /usr/bin/vimx ]; then
-	alias vim='vimx'
-fi
-
 export PATH
 export EDITOR

@@ -14,9 +14,9 @@ export HISTSIZE=100000					#An elephant never forgets...unzip 100k commands
 export HISTFILESIZE=100000				#History size matters
 shopt -s histappend						#Append to bash_history
 
+PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 # After each command, append to the history file and reread it
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-#PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
 
 if [ -n "$SSH_CLIENT" ]; then
@@ -33,3 +33,7 @@ alias cp='cp -i'
 alias rm='rm -iv'
 alias mv='mv -i'
 alias cls='clear'
+
+if [[ -f /usr/bin/vimx ]]; then
+	alias vim='vimx'
+fi

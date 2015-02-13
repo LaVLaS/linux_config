@@ -9,15 +9,11 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-<<<<<<< HEAD:i3/config_desktop
-set $mod Mod4
-=======
 # Giving that pinky a workout with the super key. Reserve Alt prefix tmux
 set $mod Mod4
 
 # Thumb curls to pump us up. Tmux stuff
 #set $mod Mod1
->>>>>>> 8a8e204f837a586f35747da15f301e595d7d9fc7:i3/config
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -114,8 +110,8 @@ bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 
 #Move between monitors while leaving current workspaces focused
-bindsym $mod+n focus output right
-bindsym $mod+p focus output left
+#bindsym $mod+n focus output right
+#bindsym $mod+p focus output left
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -189,5 +185,7 @@ for_window [class="Gimp"] floating enable
 # Programs to execute at startup
 # Shutdown monitor after 20min(1200 seconds)
 exec --no-startup-id xset dpms 1200
+exec xcompmgr -cn
+exec feh --bg-center Pictures/binary-finary-rox.jpg
 #exec --no-startup-id compton -b
 
