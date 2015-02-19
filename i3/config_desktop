@@ -185,7 +185,7 @@ for_window [class="Gimp"] floating enable
 # Programs to execute at startup
 # Shutdown monitor after 20min(1200 seconds)
 exec --no-startup-id xset dpms 1200
-exec xcompmgr -cn
-exec feh --bg-center Pictures/binary-finary-rox.jpg
+#exec xcompmgr -cn
+exec --no-startup-id feh --bg-tile Pictures/binary-finary-rox.jpg
 #exec --no-startup-id compton -b
 
