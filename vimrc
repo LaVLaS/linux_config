@@ -108,8 +108,8 @@ set ignorecase
 set smartcase
 
 " Landon's Custom VIM settings
-set directory=~/tmp/backup//
-set backupdir=~/tmp/backup//
+set directory=~/tmp/vimbackup//
+set backupdir=~/tmp/vimbackup//
 
 "Always show the status bar
 set laststatus=2
