@@ -1,0 +1,9 @@
+[user]
+	name = Landon
+	email = l.l@g.c
+
+[core]
+	editor = vim
+
+[push]
+	default = simple
