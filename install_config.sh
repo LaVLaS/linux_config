@@ -56,5 +56,5 @@ fi
 
 $SCRIPTACTION "ln -s $PWD/i3/i3status_$TARGET.conf $HOME/.i3status.conf"
 $SCRIPTACTION "ln -s $PWD/i3/config_$TARGET  $I3DIR/config"
-$SCRIPTACTION "ln -s $PWD/$TARGET/gitconfig $HOME/.gitconfig"
+$SCRIPTACTION "ln -s $PWD/gitconfig $HOME/.gitconfig"
 $SCRIPTACTION "ln -s $PWD/$TARGET/Xresources $HOME/.Xresources"

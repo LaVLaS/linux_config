@@ -174,9 +174,9 @@ focus_follows_mouse no
 
 # Control volume with PageUp(Prior), PageDown(Next) and Home keys
 # Key names provided by xev
-bindsym $mod+Next exec pactl set-sink-volume 1 -- -10%
-bindsym $mod+Prior exec pactl set-sink-volume 1 -- +10%
-bindsym $mod+Home exec pactl set-sink-mute 1 -- toggle
+bindsym $mod+Next exec pactl set-sink-volume 1 -10%
+bindsym $mod+Prior exec pactl set-sink-volume 1 +10%
+bindsym $mod+Home exec pactl set-sink-mute 1 toggle
 
 # Steam floating window support
 for_window [class="Steam"] move container to workspace 4:steam,layout tabbed
