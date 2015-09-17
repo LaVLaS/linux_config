@@ -5,3 +5,5 @@ fluxbox/lastwallpaper
 fluxbox/menu
 fluxbox/startup
 i3/config
+vim/.netrwhist
+*.swp
