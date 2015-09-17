@@ -98,8 +98,8 @@ bindsym $mod+a focus parent
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4:steam
+bindsym $mod+3 workspace number 3:steam
+bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
 bindsym $mod+6 workspace number 6
 bindsym $mod+7 workspace number 7
@@ -116,8 +116,8 @@ bindsym $mod+p workspace prev
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4:steam
+bindsym $mod+Shift+3 move container to workspace number 3:steam
+bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
 bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+7 move container to workspace number 7
@@ -182,13 +182,17 @@ bindsym $mod+Prior exec pactl set-sink-volume 1 +10%
 bindsym $mod+Home exec pactl set-sink-mute 1 toggle
 
 # Steam floating window support
-for_window [class="Steam"] move container to workspace 4:steam,layout tabbed
+for_window [class="Steam"] move container to workspace 3:steam,layout tabbed
+#for_window [title="Steam - Self Updater"] move container to workspace 3:steam, floating enable
+for_window [title="Steam - Self Updater"] move container to workspace 3:steam, tiling enable
 for_window [class="Gimp"] floating enable
 
 # Programs to execute at startup
 # Shutdown monitor after 20min(1200 seconds)
-exec --no-startup-id xset dpms 1200
+exec --no-startup-id xset dpms 1800
 #exec xcompmgr -cn
 exec --no-startup-id feh --bg-tile Pictures/binary-finary-rox.jpg
 #exec --no-startup-id compton -b
 
+#Start google-chrome
+bindsym $mod+g exec google-chrome
