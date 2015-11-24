@@ -8,14 +8,3 @@ fi
 # User specific environment and startup programs
 
 PATH=$HOME/bin:$PATH:$HOME/.local/bin
-
-if [[ -f `which vimx` ]]; then
-	EDITOR=vimx
-elif [[ -f `which vim` ]]; then
-	EDITOR=vim
-else
-	EDITOR=vi
-fi
-
-export PATH
-export EDITOR

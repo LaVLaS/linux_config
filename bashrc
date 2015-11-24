@@ -16,7 +16,8 @@ shopt -s histappend						#Append to bash_history
 
 PROMPT_COMMAND='I3PWD=${PWD};echo -ne "\033]0;${PWD}\007"'
 # After each command, append to the history file and reread it
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+#export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}"
 
 
 if [ -n "$SSH_CLIENT" ]; then
@@ -34,6 +35,12 @@ alias rm='rm -iv'
 alias mv='mv -i'
 alias cls='clear'
 
+# We want the clipboard features that are compiled into the vimx
 if [[ -f /usr/bin/vimx ]]; then
 	alias vim='vimx'
 fi
+
+EDITOR=vim
+
+export PATH
+export EDITOR
