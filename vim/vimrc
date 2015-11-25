@@ -118,3 +118,6 @@ set shiftwidth=4
 set softtabstop=4
 
 set number
+
+" Disable the freaking bell
+set belloff=all

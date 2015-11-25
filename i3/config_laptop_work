@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 18
+font pango:DejaVu Sans Mono 10
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -95,7 +95,7 @@ bindsym $mod+Shift+p focus parent
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3:steam
+bindsym $mod+3 workspace number 3
 bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
 bindsym $mod+6 workspace number 6
@@ -160,23 +160,23 @@ bindsym $mod+r mode "resize"
 bar {
 		tray_output primary
         status_command i3status
-		font pango:DejaVu Sans Mono 20
+		font pango:DejaVu Sans Mono 10
 		#font -misc-fixed-medium-r-normal--10-100-75-75-C-70-iso10646-1
 }
 
 focus_follows_mouse no
 
-# Control volume with PageUp(Prior), PageDown(Next) and Home keys
+# Control volume with media keys
 # Key names provided by xev
-bindsym $mod+Next exec pactl set-sink-volume 1 -- -10%
-bindsym $mod+Prior exec pactl set-sink-volume 1 -- +10%
-bindsym $mod+Home exec pactl set-sink-mute 1 -- toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +10%
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 
-# Steam floating window support
-for_window [class="Steam"] floating enable, move container to workspace 3:steam
 for_window [class="Gimp"] floating enable
 
 # Programs to execute at startup
-exec --no-startup-id xset dpms 1200
-exec --no-startup-id compton -b
+exec --no-startup-id xset dpms 300
+
+# Start a terminal with a new tmux session on startup
+exec --no-startup-id urxvt256c -e tmux new
 
