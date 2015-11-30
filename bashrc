@@ -14,7 +14,7 @@ export HISTSIZE=100000					#An elephant never forgets...unzip 100k commands
 export HISTFILESIZE=100000				#History size matters
 shopt -s histappend						#Append to bash_history
 
-PROMPT_COMMAND='I3PWD=${PWD};echo -ne "\033]0;${PWD}\007"'
+PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 # After each command, append to the history file and reread it
 #export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}"
