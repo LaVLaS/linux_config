@@ -178,5 +178,6 @@ for_window [class="Gimp"] floating enable
 exec --no-startup-id xset dpms 300
 
 # Start a terminal with a new tmux session on startup
-exec --no-startup-id urxvt256c -e tmux new
+#exec --no-startup-id urxvt256c -e tmux new
+exec --no-startup-id urxvt256c -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"
 
