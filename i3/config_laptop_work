@@ -173,6 +173,8 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +10%
 bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 
 for_window [class="Gimp"] floating enable
+# Move Java KVM Viewer under the tree when they are created
+for_window [title="Java iKVM Viewer.*"] floating disable
 
 # Programs to execute at startup
 exec --no-startup-id xset dpms 300
