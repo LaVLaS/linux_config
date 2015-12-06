@@ -27,7 +27,9 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec TERMINAL="urxvt256c" i3-sensible-terminal
+#bindsym $mod+Return exec TERMINAL="urxvt256c" i3-sensible-terminal
+# Need the multi-language client for Powerline font support
+bindsym $mod+Return exec TERMINAL="urxvt256c-ml" i3-sensible-terminal
 #bindsym $mod+Return exec urxvt256c
 
 # kill focused window
@@ -91,6 +93,8 @@ bindsym $mod+Shift+p focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+# Make sure the workspace 2 is always on the laptop screen
+workspace 2 output HDMI1
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
@@ -155,6 +159,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+#Lock the screen
+#bindsym Super_L exec i3lock -e -f
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -175,11 +182,14 @@ bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 for_window [class="Gimp"] floating enable
 # Move Java KVM Viewer under the tree when they are created
 for_window [title="Java iKVM Viewer.*"] floating disable
+#for_window [instance="sun-awt-X11-XFramePeer" class="net-sourceforge-jnlp-runtime-Boot"] floating disable
 
 # Programs to execute at startup
 exec --no-startup-id xset dpms 300
 
 # Start a terminal with a new tmux session on startup
 #exec --no-startup-id urxvt256c -e tmux new
-exec --no-startup-id urxvt256c -e tmux new-session -A -s$USER
+#exec --no-startup-id urxvt256c -e tmux new-session -A -s$USER
+# Need the multi-language client for Powerline font support
+exec --no-startup-id urxvt256c-ml -e tmux new-session -A -s$USER
 

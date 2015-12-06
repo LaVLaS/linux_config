@@ -41,8 +41,8 @@ URxvt*background: [95]#000050
 !
 ! Xft: Liberation fonts
 !  Fedora/debian packages: liberation-mono-fonts/ttf-liberation
-URxvt*font: xft:Liberation Mono:pixelsize=13:antialias=true:hinting=true
-URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=13:antialias=true:hinting=true
+URxvt*font: xft:Liberation Mono:pixelsize=13:antialias=true:hinting=true,xft:Liberation Mono for Powerline
+!URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=13:antialias=true:hinting=true
 !
 ! Xft: Terminus fonts
 !  Fedora/debian packages: terminus-fonts/xfonts-terminus
