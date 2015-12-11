@@ -160,7 +160,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #Lock the screen
-bindsym Ctrl+Mod1+l exec i3lock -e -f -i /home/llasmith/Pictures/contra.png
+bindsym Ctrl+Mod1+l exec i3lock -e -f -i /home/llasmith/Pictures/binary-finary-rox-4.png -t
 
 #Enable scratchpad
 bindsym $mod+Shift+minus move scratchpad
