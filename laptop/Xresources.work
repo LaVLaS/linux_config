@@ -1,4 +1,4 @@
-Rxvt.geometry: 130x60
+Rxvt.geometry: 150x80
 
 ! Not-True transparency - true or false (default)
 !URxvt*transparent: true
