@@ -32,6 +32,9 @@ alias cp='cp -i'
 alias rm='rm -iv'
 alias mv='mv -i'
 alias cls='clear'
+alias l.='ls -d .* --color=auto -F'
+alias ll='ls -l --color=auto -F'
+alias ls='ls --color=auto -F'
 
 # We want the clipboard features that are compiled into the vimx
 if [[ -f /usr/bin/vimx ]]; then
