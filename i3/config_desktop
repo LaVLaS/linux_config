@@ -31,7 +31,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec TERMINAL="urxvt256c" i3-sensible-terminal
+bindsym $mod+Return exec TERMINAL="urxvt256c-ml" i3-sensible-terminal
 #bindsym $mod+Return exec urxvt256c
 
 # kill focused window
@@ -193,6 +193,7 @@ exec --no-startup-id xset dpms 1800
 #exec xcompmgr -cn
 exec --no-startup-id feh --bg-tile Pictures/binary-finary-rox.jpg
 #exec --no-startup-id compton -b
+exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t$USER || exec tmux new-session -nscratch -s$USER"
 
 #Start google-chrome
 bindsym $mod+g exec google-chrome
