@@ -221,7 +221,6 @@ for_window [class="Gimp"] floating enable
 # Move Java KVM Viewer under the tree when they are created
 for_window [title="Java iKVM Viewer.*"] floating disable
 #for_window [instance="sun-awt-X11-XFramePeer" class="net-sourceforge-jnlp-runtime-Boot"] floating disable
-for_window [class="Nautilus"] floating enable, resize set width 180 80
 
 # Programs to execute at startup
 exec --no-startup-id xset dpms 600
