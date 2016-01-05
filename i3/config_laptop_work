@@ -225,6 +225,7 @@ for_window [title="Java iKVM Viewer.*"] floating disable
 #for_window [instance="sun-awt-X11-XFramePeer" class="net-sourceforge-jnlp-runtime-Boot"] floating disable
 for_window [class="SpiderOakBlue"] floating enable
 for_window [class="^URxvt$" instance="scratchpad"] move scratchpad; scratchpad show
+for_window [instance="arandr"] floating enable
 
 
 ##########################################################################################
