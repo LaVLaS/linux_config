@@ -11,11 +11,16 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" Vim plugin manager
 Plugin 'gmarik/vundle'
+" Fancy status line
 Bundle 'bling/vim-airline'
+" Fast quoting of text
 Bundle 'tpope/vim-surround'
-Bundle 'christoomey/vim-tmux-navigator'
+" Show line changes in the gutter
 Bundle 'airblade/vim-gitgutter'
+" Seamless movement between tmux panes and vim splits
+Bundle 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 " allow backspacing over everything in insert mode
