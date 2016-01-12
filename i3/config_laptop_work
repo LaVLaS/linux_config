@@ -194,12 +194,11 @@ mode $sysmenu {
 }
 
 bindsym $mod+Shift+s mode "screens"
-
-mode "screens" {
+mode "screens [w]ork [s]ingle [h]ome" {
         #computer specific configuration,
-        bindsym d exec autorandr -l docked --force; mode "default"
-        bindsym n exec autorandr -l notdocked --force; mode "default"
-
+        bindsym w exec screenlayout_work.sh
+        bindsym h exec screenlayout_home.sh
+        #bindsym n exec autorandr -l notdocked --force; mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -215,17 +214,22 @@ bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
 bindsym $mod+Next exec pactl set-sink-volume 1 -10%
 bindsym $mod+Prior exec pactl set-sink-volume 1 +10%
 bindsym $mod+Home exec pactl set-sink-mute 1 toggle
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 
 ##########################################################################################
 # Window specific config
 ##########################################################################################
 for_window [class="Gimp"] floating enable
 # Move Java KVM Viewer under the tree when they are created
-for_window [title="Java iKVM Viewer.*"] floating disable
+for_window [title="Java iKVM Viewer.*"] floating enable
 #for_window [instance="sun-awt-X11-XFramePeer" class="net-sourceforge-jnlp-runtime-Boot"] floating disable
-for_window [class="SpiderOakBlue"] floating enable
+#for_window [class="SpiderOakBlue"] floating enable
 for_window [class="^URxvt$" instance="scratchpad"] move scratchpad; scratchpad show
 for_window [instance="arandr"] floating enable
+for_window [class="Virt-(manager|viewer)"] floating enable
+for_window [class="Vncviewer"] floating enable
+for_window [class="Firefox" instance="Navigator"] floating enable; resize width 1024; resize height 768
 
 
 ##########################################################################################
