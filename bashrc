@@ -47,3 +47,4 @@ EDITOR=vim
 export PATH
 export EDITOR
 
+export VAGRANT_DEFAULT_PROVIDER=libvirt
