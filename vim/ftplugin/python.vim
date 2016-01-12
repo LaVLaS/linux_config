@@ -44,4 +44,6 @@ endif
 
 " LANDON'S ADDITIONS
 set number
-colorscheme harlequin
+
+" Flag unnecessary whitespace
+match SpellBad '\s\+$'
