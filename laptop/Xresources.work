@@ -72,5 +72,5 @@ URxvt*scrollstyle: plain
 
 !Clickable URLS
 URxvt.perl-ext-common:  default,matcher
-URxvt.url-launcher:      /usr/bin/firefox
+URxvt.url-launcher:      /usr/bin/google-chrome
 URxvt.matcher.button:   1
