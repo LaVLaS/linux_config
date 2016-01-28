@@ -26,6 +26,24 @@ font pango:DejaVu Sans Mono 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Enable toggling between current and previous workspace
+workspace_auto_back_and_forth yes
+##########################################################################################
+# Keybinds
+##########################################################################################
+
+# Control volume with media keys
+# Key names provided by xev
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +10%
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+# Media keys just in case we aren't using a media keyboard
+bindsym $mod+Next exec pactl set-sink-volume 1 -10%
+bindsym $mod+Prior exec pactl set-sink-volume 1 +10%
+bindsym $mod+Home exec pactl set-sink-mute 1 toggle
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+
 # start a terminal
 #bindsym $mod+Return exec TERMINAL="urxvt256c" i3-sensible-terminal
 # Need the multi-language client for Powerline font support
@@ -137,12 +155,16 @@ bindsym $mod+Shift+minus move scratchpad
 #Toggle scratchpad
 bindsym $mod+minus scratchpad show
 
+#Move music player to scratchpad and toggle it
+bindsym $mod+Shift+m mark "music", move scratchpad
+bindsym $mod+m [con_mark="music"] scratchpad show
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 		tray_output primary
         status_command i3status
-		font pango:DejaVu Sans Mono 10
+		font pango:DejaVu Sans Mono 8
 		position top
 }
 
@@ -205,18 +227,6 @@ mode "screens [w]ork [s]ingle [h]ome" {
       bindsym Escape mode "default"
 }
 
-# Control volume with media keys
-# Key names provided by xev
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -10%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +10%
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
-# Media keys just in case we aren't using a media keyboard
-bindsym $mod+Next exec pactl set-sink-volume 1 -10%
-bindsym $mod+Prior exec pactl set-sink-volume 1 +10%
-bindsym $mod+Home exec pactl set-sink-mute 1 toggle
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-
 ##########################################################################################
 # Window specific config
 ##########################################################################################
@@ -225,18 +235,16 @@ for_window [class="Gimp"] floating enable
 for_window [title="Java iKVM Viewer.*"] floating enable
 #for_window [instance="sun-awt-X11-XFramePeer" class="net-sourceforge-jnlp-runtime-Boot"] floating disable
 #for_window [class="SpiderOakBlue"] floating enable
-for_window [class="^URxvt$" instance="scratchpad"] move scratchpad; scratchpad show
+for_window [class="^URxvt$" instance="scratchpad"] move scratchpad
 for_window [instance="arandr"] floating enable
 for_window [class="Virt-(manager|viewer)"] floating enable
 for_window [class="Vncviewer"] floating enable
-for_window [class="Firefox" instance="Navigator"] floating enable; resize width 1024; resize height 768
-
 
 ##########################################################################################
 # Startup applications
 ##########################################################################################
 # Programs to execute at startup
-exec --no-startup-id xset dpms 600
+exec --no-startup-id xset dpms 1800
 
 # Start a terminal with a new tmux session on startup
 #exec --no-startup-id urxvt256c -e tmux new
@@ -247,4 +255,3 @@ exec --no-startup-id urxvt256c-ml -name scratchpad -e bash -c "exec tmux new-ses
 
 # Backup work files
 exec --no-startup-id SpiderOakBlue 
-
