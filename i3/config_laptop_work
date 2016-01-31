@@ -250,7 +250,7 @@ exec --no-startup-id xset dpms 1800
 #exec --no-startup-id urxvt256c -e tmux new
 #exec --no-startup-id urxvt256c -e tmux new-session -A -s$USER
 # Need the multi-language client for Powerline font support
-exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -n scratch -s $USER"
+exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux new-window -d -n IRC -t 8; tmux new-window -d -n VPN -t 9; tmux new-window -d -n TUNNEL -t 7; tmux new-window -n scratch -t 0'"
 exec --no-startup-id urxvt256c-ml -name scratchpad -e bash -c "exec tmux new-session -t $USER"
 
 # Backup work files
