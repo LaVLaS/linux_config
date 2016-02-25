@@ -21,7 +21,9 @@ Bundle 'tpope/vim-surround'
 " Show line changes in the gutter
 Bundle 'airblade/vim-gitgutter'
 " Seamless movement between tmux panes and vim splits
-Bundle 'christoomey/vim-tmux-navigator'
+"Bundle 'christoomey/vim-tmux-navigator'
+" Add some realtime linting
+Bundle 'scrooloose/syntastic'
 
 call vundle#end()
 " allow backspacing over everything in insert mode
@@ -129,3 +131,20 @@ set number
 
 " Disable the freaking bell
 set belloff=all
+"
+" Flag trailing whitespace
+match SpellBad '\s\+$'
+
+" Remap pane movement
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic settings
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['flake8']
