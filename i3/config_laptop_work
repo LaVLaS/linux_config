@@ -67,10 +67,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -128,6 +128,11 @@ bindsym $mod+0 workspace number 10
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 
+bindsym $mod+Shift+Mod1+l move workspace to output right
+bindsym $mod+Shift+Mod1+Right move workspace to output right
+bindsym $mod+Shift+Mod1+h move workspace to output left
+bindsym $mod+Shift+Mod1+Left move workspace to output left
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -159,13 +164,17 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+m mark "music", move scratchpad
 bindsym $mod+m [con_mark="music"] scratchpad show
 
+#Move music player to scratchpad and toggle it
+bindsym $mod+Shift+u mark "__scratchpad", move scratchpad
+bindsym $mod+u [con_mark="__scratchpad"] scratchpad show
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 		tray_output primary
         status_command i3status
 		font pango:DejaVu Sans Mono 8
-		position top
+		#position top
 }
 
 focus_follows_mouse no
@@ -220,6 +229,7 @@ mode "screens [w]ork [s]ingle [h]ome" {
         #computer specific configuration,
         bindsym w exec screenlayout_work.sh
         bindsym h exec screenlayout_home.sh
+        bindsym s exec screenlayout_laptop.sh
         #bindsym n exec autorandr -l notdocked --force; mode "default"
 
         # back to normal: Enter or Escape
@@ -235,10 +245,11 @@ for_window [class="Gimp"] floating enable
 for_window [title="Java iKVM Viewer.*"] floating enable
 #for_window [instance="sun-awt-X11-XFramePeer" class="net-sourceforge-jnlp-runtime-Boot"] floating disable
 #for_window [class="SpiderOakBlue"] floating enable
-for_window [class="^URxvt$" instance="scratchpad"] move scratchpad
+for_window [class="^URxvt$" title="__scratchpad"] mark "__scratchpad", move scratchpad, scratchpad show
 for_window [instance="arandr"] floating enable
 for_window [class="Virt-(manager|viewer)"] floating enable
 for_window [class="Vncviewer"] floating enable
+for_window [class="google-chrome" window_role="app" title="Google Play Music"] mark "music", move scratchpad, scratchpad show
 
 ##########################################################################################
 # Startup applications
@@ -247,11 +258,9 @@ for_window [class="Vncviewer"] floating enable
 exec --no-startup-id xset dpms 1800
 
 # Start a terminal with a new tmux session on startup
-#exec --no-startup-id urxvt256c -e tmux new
-#exec --no-startup-id urxvt256c -e tmux new-session -A -s$USER
 # Need the multi-language client for Powerline font support
-exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux new-window -d -n IRC -t 8; tmux new-window -d -n VPN -t 9; tmux new-window -d -n TUNNEL -t 7; tmux new-window -n scratch -t 0'"
-exec --no-startup-id urxvt256c-ml -name scratchpad -e bash -c "exec tmux new-session -t $USER"
+exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
+exec --no-startup-id urxvt256c-ml -name __scratchpad -e bash -c "tmux -q has-session -t $USER && exec tmux new-session -t $USER"
 
 # Backup work files
-exec --no-startup-id SpiderOakBlue 
+exec --no-startup-id SpiderOakBlue
