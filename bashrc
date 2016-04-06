@@ -51,6 +51,11 @@ if [[ -f /usr/bin/vimx ]]; then
 	alias vim='vimx'
 fi
 
+# nvim <-> neovim
+if [[ `which nvim` ]]; then
+    alias neovim='nvim'
+fi
+
 EDITOR=vim
 
 
