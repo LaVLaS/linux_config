@@ -142,9 +142,14 @@ nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim airline settings
+"let g:airline_powerline_fonts = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic settings
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
+"Run lint on save
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
