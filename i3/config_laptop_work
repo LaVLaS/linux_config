@@ -26,8 +26,8 @@ font pango:DejaVu Sans Mono 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Enable toggling between current and previous workspace
-#workspace_auto_back_and_forth yes
+# Enable toggling between current and previous workspace by switching to the current workspace number
+workspace_auto_back_and_forth yes
 ##########################################################################################
 # Keybinds
 ##########################################################################################
@@ -268,11 +268,11 @@ exec --no-startup-id xset dpms 1800
 
 # Start a terminal with a new tmux session on startup
 # Need the multi-language client for Powerline font support
-exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
+exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux rename-window scratch && tmux new-window -d -n ise-ci -t 1 && tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
 #exec --no-startup-id urxvt256c-ml -name __scratchpad -e sh -c "tmux -q has-session -t $USER && exec tmux new-session -t $USER"
 exec --no-startup-id urxvt256c-ml -name __scratchpad
 
-exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
+#exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
 #exec --no-startup-id urxvt256c-ml -name __scratchpad -e sh -c "tmux -q has-session -t $USER && exec tmux new-session -t $USER"
 # Backup work files
 exec --no-startup-id SpiderOakBlue

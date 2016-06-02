@@ -1,7 +1,7 @@
 # .bashrc
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
+if [[ -f /etc/bashrc ]]; then
 	. /etc/bashrc
 fi
 
@@ -20,7 +20,7 @@ shopt -s histappend						#Append to bash_history
 #export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}"
 
 #POWERLINE STUFF
-if [ -f `which powerline-daemon` ]; then
+if hash powerline-daemon 2> /dev/null; then
   powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
@@ -52,7 +52,7 @@ if [[ -f /usr/bin/vimx ]]; then
 fi
 
 # nvim <-> neovim
-if [[ `which nvim` ]]; then
+if [[ -f $HOME/bin/nvim ]] || hash nvim 2> /dev/null; then
     alias neovim='nvim'
 fi
 
