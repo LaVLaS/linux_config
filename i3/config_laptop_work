@@ -161,12 +161,16 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #Move music player to scratchpad and toggle it
-bindsym $mod+Shift+m mark "music", move scratchpad
-bindsym $mod+m [con_mark="music"] scratchpad show
+bindsym $mod+Shift+m mark "__music", move scratchpad
+bindsym $mod+m [con_mark="__music"] scratchpad show
 
-#Move music player to scratchpad and toggle it
+#Move xterm scratchpad to scratchpad and toggle it
 bindsym $mod+Shift+u mark "__scratchpad", move scratchpad
 bindsym $mod+u [con_mark="__scratchpad"] scratchpad show
+
+#Move scratchpad to scratchpad and toggle it
+bindsym $mod+Shift+g mark "__game", move scratchpad
+bindsym $mod+g [con_mark="__game"] scratchpad show
 
 # Enable floating window sticky
 bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
@@ -179,11 +183,14 @@ bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky e
 #		font pango:DejaVu Sans Mono 8
 #		#position top
 #}
+#bar {
+#    status_command SCRIPT_DIR=~/.i3/i3blocks i3blocks
+#	tray_output primary
+#	bindsym button4 nop
+#	bindsym button5 nop
+#}
 bar {
-    status_command SCRIPT_DIR=~/.i3/i3blocks i3blocks
-	tray_output primary
-	bindsym button4 nop
-	bindsym button5 nop
+    status_command $HOME/bin/conky-i3bar
 }
 
 focus_follows_mouse no
@@ -258,7 +265,7 @@ for_window [class="^URxvt$" title="__scratchpad"] mark "__scratchpad", move scra
 for_window [instance="arandr"] floating enable
 for_window [class="Virt-(manager|viewer)"] floating enable
 for_window [class="Vncviewer"] floating enable
-for_window [class="google-chrome" window_role="app" title="Google Play Music"] mark "music", move scratchpad, scratchpad show
+for_window [class="google-chrome" window_role="app" title="Google Play Music"] mark "__music", move scratchpad, scratchpad show
 
 ##########################################################################################
 # Startup applications
