@@ -25,8 +25,8 @@ if hash powerline-daemon 2> /dev/null; then
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
   . /usr/share/powerline/bash/powerline.sh
-else 
-	PS1="\[\e[37;1m\]\[\017\](\[\e[34;1m\]\u\[\e[1;37m\]@\[\e[34;1m\]\h\[\e[37;1m\])-(\[\e[32;1m\]\w\[\e[37;1m\])\n--> \[\e[0m\]"
+else
+  PS1="(\[\e[32;1m\]\w\[\e[37;1m\]) --> \[\e[0m\]"
 fi
 
 # If you want to specify a separate bash prompt for SSH connections
@@ -38,6 +38,7 @@ fi
 #	PS1="\[\e[37;1m\]\[\017\](\[\e[34;1m\]\u\[\e[1;37m\]@\[\e[34;1m\]\h\[\e[37;1m\])-(\[\e[32;1m\]\w\[\e[37;1m\])\n--> \[\e[0m\]"
 #fi
 
+# ALIASES
 alias cp='cp -i'
 alias rm='rm -iv'
 alias mv='mv -i'
