@@ -64,3 +64,4 @@ export PATH
 export EDITOR
 
 export VAGRANT_DEFAULT_PROVIDER=libvirt
+export ANSIBLE_INVENTORY=~/ansible/ansible-hosts
