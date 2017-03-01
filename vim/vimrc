@@ -120,11 +120,16 @@ set smartcase
 set directory=~/tmp/vimbackup//
 set backupdir=~/tmp/vimbackup//
 
+" automatically change window's cwd to file's dir
+" set autochdir
+
 "Always show the status bar
 set laststatus=2
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+" Round indent to multiple of 'shiftwidth'
+set shiftround
 set expandtab
 
 set number
@@ -140,6 +145,11 @@ nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
 nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
+
+" Two-spaces for Yaml files
+autocmd FileType yaml set shiftwidth=2
+autocmd FileType yaml set softtabstop=2
+autocmd FileType yaml set tabstop=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim airline settings
