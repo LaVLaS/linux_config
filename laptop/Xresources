@@ -36,9 +36,15 @@ URxvt*background: [95]#000050
 !
 ! Xft: DejaVu fonts
 !  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu 
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=24:antialias=true:hinting=true
-URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=24:antialias=true:hinting=true
-!
+!URxvt*font: xft:Inconsolata:pixelsize=14:antialias=true:hinting=true
+!URxvt*boldFont: xft:Inconsolata:bold:pixelsize=14:antialias=true:hinting=true
+!URxvt*font: xft:Roboto Mono for Powerline:pixelsize=14:antialias=true:hinting=true
+!URxvt*boldFont: xft:Roboto Mono Bold for Powerline:bold:pixelsize=14:antialias=true:hinting=true
+URxvt*font: xft:Hack-Regular:pixelsize=14:antialias=true:hinting=true
+URxvt*boldFont: xft:Hack-Bold:bold:pixelsize=14:antialias=true:hinting=true
+URxvt*italicFont: xft:Hack-Italic:bold:pixelsize=14:antialias=true:hinting=true
+URxvt*boldItalicFont: xft:Hack-BoldItalic:bold:pixelsize=14:antialias=true:hinting=true
+
 ! Xft: Liberation fonts
 !  Fedora/debian packages: liberation-mono-fonts/ttf-liberation
 !URxvt*font: xft:Liberation Mono:pixelsize=13:antialias=true:hinting=true
