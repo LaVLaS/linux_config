@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/llasmith/projects/cfme-qe/cfme_tests/log'
+let g:netrw_dirhist_2='/home/llasmith/projects/cfme-qe/cfme_tests/cfme/configure/configuration'
+let g:netrw_dirhist_3='/home/llasmith/projects/cfme-qe/cfme_tests/cfme/tests/cloud_infra_common'
+let g:netrw_dirhist_4='/home/llasmith/projects/cfme-qe/cfme_tests/.venv/lib/python2.7/site-packages/widgetastic_patternfly'
+let g:netrw_dirhist_5='/home/llasmith/.config/sway'
+let g:netrw_dirhist_6='/home/llasmith/projects/personal/linux_config/sway'
