@@ -34,13 +34,19 @@ workspace_auto_back_and_forth yes
 
 # Control volume with media keys
 # Key names provided by xev
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -10%
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +10%
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+#bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -10%
+#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +10%
+#bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume $(pactl list sinks | grep -i -B1 running | grep -i sink | cut -d'#' -f2) -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pactl list sinks | grep -i -B1 running | grep -i sink | cut -d'#' -f2) +10%
+bindsym XF86AudioMute exec pactl set-sink-mute $(pactl list sinks | grep -i -B1 running | grep -i sink | cut -d'#' -f2) toggle
 # Media keys just in case we aren't using a media keyboard
-bindsym $mod+Next exec pactl set-sink-volume 1 -10%
-bindsym $mod+Prior exec pactl set-sink-volume 1 +10%
-bindsym $mod+Home exec pactl set-sink-mute 1 toggle
+#bindsym $mod+Next exec pactl set-sink-volume 1 -10%
+#bindsym $mod+Prior exec pactl set-sink-volume 1 +10%
+#bindsym $mod+Home exec pactl set-sink-mute 1 toggle
+bindsym $mod+Next exec pactl set-sink-volume $(pactl list sinks | grep -i -B1 running | grep -i sink | cut -d'#' -f2) -10%
+bindsym $mod+Prior exec pactl set-sink-volume $(pactl list sinks | grep -i -B1 running | grep -i sink | cut -d'#' -f2) +10%
+bindsym $mod+Home exec pactl set-sink-mute $(pactl list sinks | grep -i -B1 running | grep -i sink | cut -d'#' -f2) toggle
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 
@@ -112,7 +118,7 @@ bindsym $mod+Shift+p focus parent
 # focus the child container
 #bindsym $mod+d focus child
 # Make sure the workspace 2 is always on the laptop screen
-workspace 2 output eDP2
+workspace 2 output eDP1
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
@@ -171,6 +177,10 @@ bindsym $mod+u [con_mark="__scratchpad"] scratchpad show
 #Move scratchpad to scratchpad and toggle it
 bindsym $mod+Shift+g mark "__game", move scratchpad
 bindsym $mod+g [con_mark="__game"] scratchpad show
+
+#Move scratchpad to scratchpad and toggle it
+bindsym $mod+Shift+t mark "__vnc", move scratchpad
+bindsym $mod+t [con_mark="__vnc"] scratchpad show
 
 # Enable floating window sticky
 bindsym $mod+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1515 20
@@ -265,7 +275,7 @@ for_window [class="^URxvt$" title="__scratchpad"] mark "__scratchpad", move scra
 for_window [instance="arandr"] floating enable
 for_window [class="Virt-(manager|viewer)"] floating enable
 for_window [class="Vncviewer"] floating enable
-for_window [class="google-chrome" window_role="app" title="Google Play Music"] mark "__music", move scratchpad, scratchpad show
+for_window [class="Google-chrome" window_role="app" title="Google Play Music"] mark "__music", move scratchpad, scratchpad show
 
 ##########################################################################################
 # Startup applications
@@ -273,13 +283,16 @@ for_window [class="google-chrome" window_role="app" title="Google Play Music"] m
 # Programs to execute at startup
 exec --no-startup-id xset dpms 1800
 
+exec --no-startup-id xoutputd
+
 # Start a terminal with a new tmux session on startup
 # Need the multi-language client for Powerline font support
-exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux rename-window scratch && tmux new-window -d -n ise-ci -t 1 && tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
+exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux rename-window scratch && tmux new-window -d -n cfme-test -c /home/llasmith/projects/cfme-qe/cfme_tests -t 1 && tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
 #exec --no-startup-id urxvt256c-ml -name __scratchpad -e sh -c "tmux -q has-session -t $USER && exec tmux new-session -t $USER"
 exec --no-startup-id urxvt256c-ml -name __scratchpad
 
 #exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
 #exec --no-startup-id urxvt256c-ml -name __scratchpad -e sh -c "tmux -q has-session -t $USER && exec tmux new-session -t $USER"
 # Backup work files
-exec --no-startup-id SpiderOakBlue
+exec --no-startup-id SpiderOakGroups
+exec --no-startup-id xrdb ~/.Xresources
