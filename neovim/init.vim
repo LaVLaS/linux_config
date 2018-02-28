@@ -17,6 +17,8 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-surround'
 " Show line changes in the gutter
 Plug 'airblade/vim-gitgutter'
+" Hotkeys for commonly used navigation commands: buffers, files, diff
+Plug 'tpope/vim-unimpaired'
 call plug#end()
 
 " allow backspacing over everything in insert mode
@@ -159,3 +161,7 @@ let g:syntastic_python_checkers = ['flake8']
 
 "Highlight the current line
 set cursorline
+
+" Default to opening splits on the bottom/right
+set splitbelow
+set splitright
