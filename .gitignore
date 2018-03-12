@@ -7,3 +7,4 @@ fluxbox/startup
 i3/config
 vim/.netrwhist
 *.swp
+*.netrwhist

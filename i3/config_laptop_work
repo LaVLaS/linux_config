@@ -118,7 +118,7 @@ bindsym $mod+Shift+p focus parent
 # focus the child container
 #bindsym $mod+d focus child
 # Make sure the workspace 2 is always on the laptop screen
-workspace 2 output eDP1
+workspace 2 output eDP-1
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
