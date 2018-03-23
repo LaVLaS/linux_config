@@ -133,7 +133,8 @@ set number
 set belloff=all
 "
 " Flag trailing whitespace
-match SpellBad '\s\+$'
+highlight link TrailingWhitespace SpellBad
+match TrailingWhitespace '\s\+$'
 
 " Remap pane movement
 nmap <c-j> <c-w>j
