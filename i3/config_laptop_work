@@ -287,7 +287,7 @@ exec --no-startup-id xoutputd
 
 # Start a terminal with a new tmux session on startup
 # Need the multi-language client for Powerline font support
-exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux rename-window scratch && tmux new-window -d -n cfme-test -c /home/llasmith/projects/cfme-qe/cfme_tests -t 1 && tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
+exec --no-startup-id urxvt256c-ml -e bash -c "tmux -q has-session && exec tmux new-session -t $USER || exec tmux new-session -s $USER 'tmux rename-window scratch && tmux new-window -d -n IRC -t 8 && tmux new-window -d -n VPN -t 9 && tmux new-window -d -n scratch -t 0'"
 #exec --no-startup-id urxvt256c-ml -name __scratchpad -e sh -c "tmux -q has-session -t $USER && exec tmux new-session -t $USER"
 exec --no-startup-id urxvt256c-ml -name __scratchpad
 
