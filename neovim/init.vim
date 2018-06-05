@@ -104,6 +104,9 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+" Flag trailing whitespace
+match SpellBad '\s\+$'
+
 set background=dark
 colorscheme harlequin
 
@@ -120,9 +123,12 @@ set backupdir=~/tmp/vimbackup//
 
 "Always show the status bar
 set laststatus=2
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+
+" 4 spaces == tab PERIOD
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
 " Round indent to multiple of 'shiftwidth'
 set shiftround
 set expandtab
@@ -132,15 +138,11 @@ set number
 " Disable the freaking bell
 set belloff=all
 "
-" Flag trailing whitespace
-highlight link TrailingWhitespace SpellBad
-match TrailingWhitespace '\s\+$'
-
 " Remap pane movement
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-h> <c-w>h
-nmap <c-l> <c-w>l
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
 
 " Two-spaces for Yaml files
 autocmd FileType yaml set shiftwidth=2
@@ -166,3 +168,6 @@ set cursorline
 " Default to opening splits on the bottom/right
 set splitbelow
 set splitright
+
+" Hide the buffer when abandonned
+set hidden
